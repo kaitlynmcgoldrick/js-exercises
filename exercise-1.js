@@ -11,9 +11,9 @@ const flavours = [
   "Overcooked Cabbage"
 ];
 
-const transformStrings = array => {
-  // your solution here
-};
+const transformStrings = array => 
+  array.filter(string => string.length<20)
+    .sort();
 
 console.log(transformStrings(flavours));
 
