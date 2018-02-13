@@ -4,14 +4,14 @@
 const someWords = ["apple", "banana", "apple", "durian", "durian", "durian"];
 
 const countWords = words => {
-  words.reduce((distinctWords,word) =>{
-    // if(distinctWords.includes(word)){
-    //   distinctWords.word++;
-    // }else{
-    //   distinctWords.concat("{word:0}");
-    // }
-    return distinctWords.concat(word);
-    },{});
+  return words.reduce((distinctWords,word) =>{
+    if(distinctWords[word] != null){
+      distinctWords[word]++;
+    }else{
+      distinctWords[word]=1;
+    }
+    return distinctWords;
+  },{});
 };
 
 console.log(countWords(someWords));

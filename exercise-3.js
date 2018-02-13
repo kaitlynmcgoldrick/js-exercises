@@ -3,12 +3,14 @@
 const numbers = [1, 2, 3, 4, 5];
 
 const map = (array, fn) => {
-  // your solution here
+  return array.reduce((acc,cur)=>{
+    return [...acc,fn(cur)]
+  },[]);
 };
 
 const double = x => x * 2;
 
 console.log(map(numbers, double));
-// [2, 3, 6, 8, 10]
+// [2, *4*3, 6, 8, 10]
 
 module.exports = map;
