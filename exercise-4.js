@@ -6,7 +6,8 @@
 const numbers = [1, 2, 3, 4, 5];
 
 const reduce = (array, fn, init) => {
-  // your solution here
+  return array.reduce((acc, curr) => fn(acc, curr),
+  init);
 };
 
 const sum = (acc, val) => acc + val;
