@@ -18,12 +18,11 @@ const transformStrings = array => {
       acc.concat(flavour.split('').reverse().join(''))
        : acc;
 
-
-       //return array.filter(item = item.length <= 20) {
-        //array.map(flavour.split('').reverse().join(''))
-        //}
-     //}
   }, []);
+
+  //return array.filter(item => item.length <= 20) {
+   //array.map(item =>.split("").reverse().join(""));
+   //};
 
 };
 
