@@ -13,6 +13,8 @@ const flavours = [
 
 const transformStrings = array => {
   // your solution here
+  return array.filter(item => item.length <= 20)
+              .map(item => item.split("").reverse().join(""));
 };
 
 console.log(transformStrings(flavours));
