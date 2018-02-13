@@ -7,6 +7,8 @@ const countWords = words => {
   // your solution here
   return words.reduce((tally, fruit) => {
       tally[fruit] = (tally[fruit] || 0) + 1;
+      //tally[fruit] = tally[fruit] += 1 : tally[fruit] = 1;
+      // acc.hasOwnProperty(curr) ? acc[curr] += 1 : 1;
       return tally;
   }, {});
 };
