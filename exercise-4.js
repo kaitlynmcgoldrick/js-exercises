@@ -17,7 +17,8 @@ const reduce = (array, fn, init) => {
   }
 
   //splice vs splice
-  //splice
+  //splice - edits original Array
+  //slicee - returns original array plus modified one
 
   // my solution here
   // return array.reduce((acc, val) => {
