@@ -4,9 +4,36 @@
 // You may assume the initial value will always be supplied.
 
 const numbers = [1, 2, 3, 4, 5];
-
 const reduce = (array, fn, init) => {
-  // your solution here
+  if (array.length === 0) { // !array.length
+    return init;
+  } else {
+    let total = fn(init, array[0]); // fn(0, 1)
+    return reduce(array.slice(1), fn, total);
+  }
+
+  // if (array.length === 1) {
+  //   return fn(init, array[0]);
+  // } else {
+  //   return reduce(array.slice(1), fn, reduce(array.slice(0, 1), fn, init));
+  // }
+
+  // if (!array.length) {
+  //   return init;
+  // } else {
+  //   let total = fn(init, array.shift());
+  //   return reduce(array, fn, total);
+  // }
+
+  // let acc = init;
+  // let counter = 0;
+
+  // while (counter < array.length){
+  //   acc = fn(acc, array[counter]);
+  //   counter++;
+  // }
+  // return acc;
+ 
 };
 
 const sum = (acc, val) => acc + val;

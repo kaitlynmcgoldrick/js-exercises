@@ -4,6 +4,10 @@ const numbers = [1, 2, 3, 4, 5];
 
 const map = (array, fn) => {
   // your solution here
+  return array.reduce((acc, curr) => {
+    // return acc.concat(fn(curr));
+    return [...acc, fn(curr)];
+  }, [])
 };
 
 const double = x => x * 2;
