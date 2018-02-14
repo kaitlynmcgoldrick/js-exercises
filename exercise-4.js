@@ -6,9 +6,12 @@
 const numbers = [1, 2, 3, 4, 5];
 
 const reduce = (array, fn, init) => {
-  return array.reduce((total, current) => {
-    return fn(total, current);
-  }, init);
+  if (!array.length) {
+    return init; // this is catching the base case, when the array is 0 so it returns the total
+  } else {
+    let total = fn(init, array.shift()); // second param is the first item in the array. array.shift() removes the first item from the array and returns that value
+    return reduce(array, fn, total); // array here has the same values, minus the old first item
+  }
 };
 
 const sum = (acc, val) => acc + val;

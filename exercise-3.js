@@ -3,9 +3,7 @@
 const numbers = [1, 2, 3, 4, 5];
 
 const map = (array, fn) => {
-  return array.reduce((total, current) => {
-    return total.concat(fn(current));
-  }, []);
+  return array.reduce((total, current) => [...acc, fun(curr)], []);
 };
 
 const double = x => x * 2;

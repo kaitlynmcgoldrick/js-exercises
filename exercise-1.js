@@ -12,12 +12,12 @@ const flavours = [
 ];
 
 const transformStrings = array => {
-  return array.filter(items => items.length <= 20).map(item => {
-    return item
+  return array.filter(items => items.length <= 20).map(item =>
+    item
       .split("")
       .reverse()
-      .join("");
-  });
+      .join("")
+  );
 };
 
 console.log(transformStrings(flavours));
