@@ -4,13 +4,9 @@
 const someWords = ["apple", "banana", "apple", "durian", "durian", "durian"];
 
 const countWords = words => {
-  return words.reduce((distinctWords,word) =>{
-    if(distinctWords[word] != null){
-      distinctWords[word]++;
-    }else{
-      distinctWords[word]=1;
-    }
-    return distinctWords;
+  return words.reduce((acc,cur) =>{
+    acc[cur] ? acc[cur]++ : acc[cur]=1;
+    return acc;
   },{});
 };
 

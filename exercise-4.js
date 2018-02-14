@@ -5,21 +5,22 @@
 
 const numbers = [1, 2, 3, 4, 5];
 
-const reduce = (array, fn, init) => {
-  let acc = init;
-  let c = 0
-  while (c<array.length){
-    acc = fn(acc,array[c])
-    c++;
-  }
-  return acc;
+const reduce = (array, fn, init) =>{
+    if(array.length === 0){
+      return init;
+    }else{
+      let total = fn(init, array[0]);
+      return reduce(array.slice(1), fn, total);
+    }
+      // acc = fn(acc,array[c])
+      // c++;
 };
 
 const sum = (acc, val) => acc + val;
 
 console.log(reduce(numbers, sum, 0)); // 15
 
-// module.exports = reduce;
+module.exports = reduce;
 
 // let acc = 0;
 // acc = sum(acc,numbers[0]);
