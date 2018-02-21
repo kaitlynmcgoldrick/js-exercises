@@ -5,8 +5,12 @@ require("es6-promise");
 
 const promise = new Promise(function(resolve, reject) {
   // Your solution here
+  setTimeout(resolve('FULFILLED!'), 300);
 });
 
 const onResolve = value => {
   // Your solution here
+  console.log(value);
 };
+
+promise.then(data => onResolve(data));

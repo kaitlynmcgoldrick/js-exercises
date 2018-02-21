@@ -5,8 +5,12 @@ require("es6-promise");
 
 const promise = new Promise(function(resolve, reject) {
   // Your solution here
+  setTimeout(reject(Error('REJECTED!')), 300);
 });
 
 const onReject = value => {
   // Your solution here
+  console.log(value.message);
 };
+
+promise.then(err => onReject(err));
