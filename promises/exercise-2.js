@@ -5,14 +5,15 @@
 
 const promise = new Promise(function(resolve, reject) {
   // Your solution here
-    setTimeout(() => {
-      reject('REJECTED!');
-    }, 300);
+    setTimeout(() => reject('REJECTED!'), 300);
   });
 
 const onReject = value => {
   // Your solution here
-  console.log(promise);
+  console.error(promise);
 };
 
 promise.then(onReject);
+
+
+//(node:23714) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): REJECTED!
