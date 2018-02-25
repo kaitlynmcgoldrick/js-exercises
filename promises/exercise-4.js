@@ -1,10 +1,11 @@
 require("es6-promise");
 
 const listOfWines = [
-    {id: 'someId', name: 'Black Tower', type: 'White'},
-    {id: 'someOtherId', name: 'Merlot', type: 'Red'},
-    {id: 'somethingElse', name: 'Yellow Tail', type: 'Red'},
+    {id: 'someId', name: 'Black Tower', type: 'White', num: 1},
+    {id: 'someOtherId', name: 'Merlot', type: 'Red', num: 2},
+    {id: 'somethingElse', name: 'Yellow Tail', type: 'Red', num: 3},
 ];
+// const listOfWines = [];
   
   /* 1. Create a promise. Have it fulfilled with the list of wines after a delay of 3000ms, using setTimeout.
      2. Then, print the contents of the promise after it has been fulfilled by passing console.log to then.
@@ -18,22 +19,44 @@ const listOfWines = [
   
   const myPromise = new Promise((resolve, reject) => {
     // Your solution for #1 here
+    if (listOfWines.length === 0) {
+      reject('something is broken')
+    } else {
+      setTimeout(() => {
+        resolve(listOfWines);
+      }, 3000);
+    }
   });
   
   const onSuccess = value => {
     // Your solution here
+    const newlist = value.filter(thing => thing.type == 'Red');
+    console.log(newlist);
   };
 
   // Use myPromise here with onSuccess
-
-
-
-  const myFailedPromise = new Promise((resolve, reject) => {
-    // Your solution for #3 here
+  myPromise
+  .then((data) => {
+    console.log(data.filter(thing => thing.type == 'Red'));
+  }).catch((err) => {
+    console.log('Oh no, the request failed becasuse', err)
   });
 
-  const onReject = value => {
-    // Your solution here
-  };
+
+
+  // const myFailedPromise = new Promise((resolve, reject) => {
+  //   // Your solution for #3 here
+  //   setTimeout(() => {
+  //     reject('something is broken');
+  //   }, 3000);
+  // });
+
+  // const onReject = value => {
+  //   // Your solution here
+  //   console.log('Oh no, the request failed becasuse', value)
+  // };
 
   // use myFailedPromise here with onReject
+  // myFailedPromise.catch((err) => {
+  //   onReject(err);
+  // });
